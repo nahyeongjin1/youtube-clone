@@ -1,0 +1,14 @@
+mixin video(info)
+    div
+        h4=info.title
+        ul 
+            li #{info.rating}/5.
+            li #{info.comments} comments.
+            li Posted #{info.createdAt}.
+            li #{info.views} views.
+
+//- mixin은 다른 pug 파일에서도 사용할 가능성이 있는,
+//- js에서 값을 불러올 수 있는 component
+//- HTML content를 return하는 함수라 생각하면 될듯?
+//- js에서 정보를 받아야 하면 mixin,
+//- 정보를 받아올 필요가 없다면 partials
