@@ -1,11 +1,12 @@
-mixin video(info)
+mixin video(video)
     div
-        h4=info.title
+        h4
+            a(href=`/videos/${video.id}`)=video.title
         ul 
-            li #{info.rating}/5.
-            li #{info.comments} comments.
-            li Posted #{info.createdAt}.
-            li #{info.views} views.
+            li #{video.rating}/5.
+            li #{video.comments} comments.
+            li Posted #{video.createdAt}.
+            li #{video.views} views.
 
 //- mixin은 다른 pug 파일에서도 사용할 가능성이 있는,
 //- js에서 값을 불러올 수 있는 component
