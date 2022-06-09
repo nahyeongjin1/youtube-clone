@@ -1,12 +1,14 @@
-import "./db";
-import "./models/Video";
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 
-const PORT = 4000;
+/* The reason why server.js & init.js are separated is because,
+purpose of server.js file is about task for expressjs and
+handle configuration of server.
+Therefore, the part that needs to be dealt with
+at the start of the program (like import) is handled in init.js */
 
 const app = express();
 const logger = morgan("dev");
@@ -19,7 +21,4 @@ app.use("/", globalRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
 
-const handleListening = () =>
-  console.log(`✅ Server listening on port http://localhost:${PORT} 🚀`);
-
-app.listen(PORT, handleListening);
+export default app;
